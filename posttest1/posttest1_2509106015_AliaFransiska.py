@@ -150,7 +150,6 @@ if __name__ == "__main__":
             print("\n1. Login")
             print("2. Register")
             print("3. Keluar")
-            print("4. Pengujian Program (Main Code)")
             pilih = input("Pilih menu: ")
             
             if pilih == "1":
@@ -210,85 +209,11 @@ if __name__ == "__main__":
                 
             elif pilih == "3":
                 break
-
-            elif pilih == "4":
-                bersihkan_layar()
-
-                # 2 objek untuk setiap class
-                Toko11 = Marketplace("Tarakan")
-                Toko12 = Marketplace("Bontang")
-                Produk1 = Produk("Ikan Arwana", "Ikan Hias", 5000000, 3)
-                Produk2 = Produk("Filter Akuarium", "Aksesoris", 150000, 20)
-                User1 = User("arum", "arum123", 2000000, "user")
-                User2 = User("dewi", "dewi123", 750000, "user")
-                print("\n2 objek Marketplace:")
-                print("Toko11 = Tarakan")
-                print("Toko12 = Bontang")
-                print("\n2 objek Produk:")
-                print("Produk1 = Ikan Arwana")
-                print("Produk2 = Filter Akuarium")
-                print("\n2 objek User:")
-                print("User1 = arum")
-                print("User2 = dewi")
-
-                # 2. Instance method
-                print("\n== Instance Method ==")
-                print("\n[info() dari Toko11]")
-                Toko11.info()
-                print("\n[tampilan() dari Produk1]")
-                Produk1.tampilan()
-                print("\n[profil() dari User1]")
-                User1.profil()
-                print("\n[cek_password() dari User1]")
-                print("Password benar :", User1.cek_password("arum123"))
-                print("Password salah  :", User1.cek_password("salah"))
-                print("\n[beli() dari User1]")
-                User1.beli(Produk2, 2)
-
-                # 3. Class method
-                print("\n== Class Method ==")
-                print("Total produk awal:", Marketplace.total_produk)
-                Marketplace.tambah_produk(5)
-                print("Setelah tambah_produk(5):", Marketplace.total_produk)
-
-                # 4. Static method
-                print("\n== Static Method ==")
-                angka = Marketplace.input_angka(
-                    "Masukkan angka untuk pengujian: "
-                )
-                print("Angka yang dimasukkan:", angka)
-
-                # 5. Setter valid
-                print("\n== Pengujian Setter Data Valid ==")
-                Produk1.harga = 6000000
-                print("Harga Produk1 berhasil diubah:", Produk1.harga)
-                Produk2.stok = 25
-                print("Stok Produk2 berhasil diubah:", Produk2.stok)
-                User1.saldo = 1000000
-                print("Saldo User1 berhasil ditambah:", User1.saldo)
-
-                # 6. Setter tidak valid
-                print("\n== Pengujian Setter Data Tidak Valid ==")
-                try:
-                    Produk1.harga = -1000
-                except ValueError as e:
-                    print("Harga tidak valid:", e)
-                try:
-                    Produk2.stok = "dua puluh"
-                except ValueError as e:
-                    print("Stok tidak valid:", e)
-                try:
-                    User1.saldo = -50000
-                except ValueError as e:
-                    print("Saldo tidak valid:", e)
-                input("\nTekan Enter untuk kembali ke menu login...")
             else:
                 print("Pilihan salah!")
                 input("\nTekan Enter...")
                 
         else:
-            print(f"\nHalo, {pengguna_aktif.nama} ({pengguna_aktif.role.upper()})")
-            
             if pengguna_aktif.role == "admin":
                 print("\n== MENU ADMIN ==")
                 print("1. Tambah Produk")
