@@ -20,12 +20,12 @@ Kelas ini merepresentasikan entitas toko secara global, menangani data bersama (
 
 ### 2. Kelas `Produk`
 Kelas ini mengatur entitas barang yang dijual di dalam marketplace beserta aturan bisnis terkait harga dan ketersediaan stok.
-* **Atribut Instance (Encapsulated):**
+* **Atribut Instance:**
   * `nama`: Nama produk (akses publik).
   * `kategori`: Kategori produk, seperti *Ikan Hias* atau *Aksesoris* (akses publik).
   * `__harga`: Harga satuan produk yang dilindungi secara privasi (*private attribute*).
   * `__stok`: Jumlah ketersediaan stok produk yang juga dilindungi secara privasi (*private attribute*).
-* **Property & Setter (Encapsulation Control):**
+* **Property & Setter:**
   * `@property harga` & `@harga.setter`: Memungkinkan akses ke variabel `__harga` layaknya atribut biasa, namun dilengkapi validasi ketat di dalam setter agar nilai harga tidak boleh negatif (`ValueError`).
   * `@property stok` & `@stok.setter`: Mengamankan variabel `__stok` dengan validasi tipe data (`isinstance`) dan memastikan nilai stok berupa angka bulat positif.
 * **Metode Utama:**
@@ -51,9 +51,9 @@ Kelas ini merepresentasikan pengguna sistem, baik sebagai pelanggan umum maupun 
 
 ##  Alur Program
 
-Alur program **Altria Aquatics Marketplace** dimulai dengan proses inisialisasi data default, di mana sistem secara otomatis mempersiapkan objek toko, daftar produk awal, serta akun bawaan untuk admin dan pengguna. Setelah itu, program memasuki loop utama berkelanjutan yang secara berkala membersihkan layar konsol dan menampilkan menu antarmuka berdasarkan status sesi aktif (*pengguna_aktif*). 
+Alur program **Altria Aquatics Marketplace** dimulai dengan proses inisialisasi data, di mana sistem secara otomatis mempersiapkan objek toko, daftar produk awal, serta akun bawaan untuk admin dan pengguna. Setelah itu, program memasuki loop utama berkelanjutan yang secara berkala membersihkan layar konsol dan menampilkan menu antarmuka berdasarkan status sesi aktif (*pengguna_aktif*). 
 
-Ketika belum ada pengguna yang masuk (*status login null*), sistem menyajikan empat opsi menu utama: **Login**, **Register**, **Keluar**, dan **Pengujian Program**. Pada menu Login, sistem akan memverifikasi kredensial input dan mengarahkan pengguna ke dashboard admin jika memasukkan akun khusus, atau ke dashboard user biasa apabila data cocok dengan daftar yang tersimpan. Menu Register memungkinkan pengguna baru untuk mendaftarkan akun dengan memasukkan nama, password, dan saldo awal yang divalidasi keamanannya agar tidak terjadi duplikasi dengan nama admin. Sementara itu, opsi pengujian menjalankan demonstrasi kode OOP secara menyeluruh, dan opsi keluar akan menghentikan eksekusi program.
+Ketika belum ada pengguna yang masuk, sistem menampilkan tiga pilihan menu utama: **Login**, **Register**, **Keluar**. Pada menu Login, sistem akan memverifikasi input dan mengarahkan pengguna ke menu admin jika memasukkan akun khusus, atau ke menu user biasa apabila data cocok dengan daftar yang tersimpan. Menu Register memungkinkan pengguna baru untuk mendaftarkan akun dengan memasukkan nama, password, dan saldo awal yang divalidasi keamanannya agar tidak terjadi duplikasi dengan nama admin. 
 
 Setelah berhasil masuk ke dalam sistem, menu dan hak akses akan disesuaikan secara otomatis dengan peran (*role*) masing-masing pengguna. Jika masuk sebagai **Admin**, pengguna memiliki wewenang penuh untuk menambah produk baru ke katalog, melihat daftar seluruh produk dan user beserta saldonya, memperbarui harga produk menggunakan *setter* bervalidasi, menghapus produk tertentu melalui fungsi manipulasi list, hingga mengakhiri sesi lewat menu *logout*. Sebaliknya, jika masuk sebagai **User**, pengguna dapat menjelajahi katalog produk, melakukan transaksi pembelian yang divalidasi langsung dengan ketersediaan stok dan besaran saldo, melakukan isi ulang (*top-up*) saldo, melihat detail profil pribadi, maupun kembali melakukan *logout* untuk mengembalikan status aplikasi ke menu awal.
 
