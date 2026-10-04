@@ -195,7 +195,7 @@ if __name__ == "__main__":
         
         if pengguna_aktif is None:
             print("\n1. Login")
-            print("2. Register")
+            print("2. Register Member")
             print("3. Keluar")
             pilih = input("Pilih menu: ")
             

@@ -72,21 +72,7 @@ Subclass turunan dari `User` yang mewakili member dengan hak istimewa berupa dis
 
 ---
 
-## Relasi UML yang Diterapkan
-
-Program ini mengimplementasikan keempat jenis relasi OOP sesuai materi Modul 4 dan Modul 5:
-
-| Jenis Relasi | Kata Kunci | Implementasi di Program |
-|--------------|------------|-------------------------|
-| **Asosiasi** | "Menggunakan" | Objek `User` **menggunakan** objek `Produk` saat memanggil method `beli(produk, jumlah)` — objek `Produk` diterima sebagai parameter, tidak disimpan permanen. |
-| **Agregasi** | "Memiliki" | `Marketplace` **memiliki** `daftar_produk` dan `daftar_user`. Objek `Produk` dan `User` dibuat di luar lalu dimasukkan lewat method `tambah_produk_ke_sistem()` / `tambah_user_ke_sistem()`. Jika `Marketplace` dihapus, objek produk/user tetap ada. |
-| **Komposisi** | "Terdiri dari" | `Produk` **terdiri dari** `RiwayatMutasi`. Objek `RiwayatMutasi` dibuat di dalam `Produk` lewat `_catat_mutasi()` dan tidak memiliki arti jika dipisahkan dari `Produk`. |
-| **Inheritance** | "Adalah jenis dari" | `AdminUser` **adalah jenis dari** `User`. `MemberUser` **adalah jenis dari** `User`. Keduanya mewarisi atribut dan method superclass melalui `super().__init__()`. |
-
----
-
 ## Inheritance (Pewarisan)
-
 Program menerapkan konsep **Hierarchical Inheritance** di mana satu superclass (`User`) diwarisi oleh dua subclass (`AdminUser`, `MemberUser`).
 
 ### Ciri Inheritance yang Diterapkan:
